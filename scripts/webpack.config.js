@@ -5,37 +5,41 @@ const pkg = require('../package.json')
 const commonConfig = require('./webpack.common')
 
 const bannerPack = new webpack.BannerPlugin({
-  banner: [
-    `Muya Editor v${pkg.version}`,
-    'https://github.com/marktext/muya',
-    'Copyright (c) 2018-present, Jocs ransixi@gmail.com and all muya contributors'
-  ].join('\n'),
-  entryOnly: true
+    banner: [
+        `Muya Editor v${pkg.version}`,
+        'https://github.com/marktext/muya',
+        'Copyright (c) 2018-present, Jocs ransixi@gmail.com and all muya contributors'
+    ].join('\n'),
+    entryOnly: true
 })
 
 const constantPack = new webpack.DefinePlugin({
-  MUYA_VERSION: JSON.stringify(pkg.version)
+    MUYA_VERSION: JSON.stringify(pkg.version)
 })
 
 // const proMode = process.env.NODE_ENV === 'production'
 
 module.exports = (env) => ({
-  ...commonConfig.default,
+    ...commonConfig.default,
 
-  mode: env.production ? 'production' : 'development',
+    mode: env.production ? 'production' : 'development',
 
-  entry: './lib/index.js',
+    entry: './lib/index.js',
 
-  output: {
-    filename: 'muya.js',
-    path: path.resolve(__dirname, '../dist')
-  },
+    output: {
+        filename: 'index.min.js',
+        path: path.resolve(__dirname, '../dist'),
+        library: {
+            name: "Muya",
+            type: "umd",
+        }
+    },
 
-  plugins: [
-    bannerPack,
-    constantPack,
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-  ]
+    plugins: [
+        bannerPack,
+        constantPack,
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
+    ]
 })

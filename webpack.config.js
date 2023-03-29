@@ -16,38 +16,49 @@ exports.default = {
   devtool: 'hidden-nosources-source-map',
   optimization: {
     emitOnErrors: false,
-    minimize: true
+    minimize: false,
+  },
+  experiments: {
+    outputModule: true
   },
   entry: {
     renderer: path.join(__dirname, './lib/index.js')
   },
+  output: {
+    filename: 'index.min.js',
+    library: {
+      type: "module",
+    },
+    path: path.join(__dirname, './dist')
+  },
   module: {
     rules: [
-      {
-        test: require.resolve(path.join(__dirname, './lib/assets/libs/snap.svg-min.js')),
-        use: 'imports-loader?this=>window,fix=>module.exports=0'
-      },
+      // {
+      //     test: require.resolve(path.join(__dirname, './lib/assets/libs/snap.svg-min.js')),
+      //     use: 'imports-loader?this=window'
+      // },
       {
         test: /(theme\-chalk(?:\/|\\)index|exportStyle|katex|github\-markdown|prism[\-a-z]*|\.theme|headerFooterStyle)\.css$/,
         use: [
           'to-string-loader',
           'css-loader'
         ]
-      },
+      }
+      ,
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 }
+            options: {importLoaders: 1}
           },
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
-                  postcssPresetEnv({ stage: 0 })
+                  postcssPresetEnv({stage: 0})
                 ]
               }
             }
@@ -93,12 +104,7 @@ exports.default = {
       filename: 'index.min.css'
     })
   ],
-  output: {
-    filename: 'index.min.js',
-    libraryTarget: 'esm',
-    library: 'Muya',
-    path: path.join(__dirname, './dist')
-  },
+
   resolve: {
     alias: {
       snapsvg: path.join(__dirname, './lib/assets/libs/snap.svg-min.js')
@@ -106,7 +112,9 @@ exports.default = {
     extensions: ['.js', '.vue', '.json', '.css', '.node'],
     fallback: {
       fs: false,
-      path: require.resolve('path-browserify')
+      path: require.resolve('path-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      stream: require.resolve('stream-browserify')
     }
   }
 }
