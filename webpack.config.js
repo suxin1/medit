@@ -2,12 +2,16 @@
 
 process.env.BABEL_ENV = 'renderer'
 
+// import path from 'path';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+// import postcssPresetEnv from 'postcss-preset-env'
+
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 
 /** @type {import('webpack').Configuration} */
-module.exports = {
+exports.default = {
   mode: 'production',
   devtool: 'hidden-nosources-source-map',
   optimization: {
@@ -91,7 +95,7 @@ module.exports = {
   ],
   output: {
     filename: 'index.min.js',
-    libraryTarget: 'umd',
+    libraryTarget: 'esm',
     library: 'Muya',
     path: path.join(__dirname, './dist')
   },
