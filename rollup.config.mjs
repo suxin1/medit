@@ -1,10 +1,10 @@
 import path from 'path'
 import {fileURLToPath} from 'url';
-// import alias from '@rollup/plugin-alias'
+import alias from '@rollup/plugin-alias'
 import image from '@rollup/plugin-image'
 import json from '@rollup/plugin-json'
 import commonjs from '@rollup/plugin-commonjs';
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import copy from "rollup-plugin-copy";
 import styles from 'rollup-plugin-styles';
@@ -15,6 +15,9 @@ import styles from 'rollup-plugin-styles';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const EMPTY_MODULE_ID = '\0node-resolve:empty.js';
+
 
 // rollup.config.mjs
 export default {
@@ -37,19 +40,23 @@ export default {
     copy({
       targets: [{src: './themes', dest: 'dist/'}]
     }),
-    // alias({
-    //   entries: [
-    //     {
-    //       find: '@',
-    //       replacement: path.resolve(__dirname, './lib'),
-    //     }
-    //   ],
-    // }),
+    alias({
+      entries: [
+        {find: 'fs', replacement: EMPTY_MODULE_ID},
+        {find: 'path', replacement: 'path-browserify'},
+        {find: 'zlib', replacement: 'browserify-zlib'},
+        {find: 'stream', replacement: 'stream-browserify'},
+      ],
+    }),
     external(),
-    nodeResolve({browser: true}),
     commonjs({
       strictRequires: true,
       transformMixedEsModules: true,
+    }),
+    resolve({
+      // browser: true,
+      preferBuiltins: false,
+      mainFields: ['module', 'jsnext:main', 'browser'],
     }),
     // scss({
     //   exclude: ["./lib/ui/**/*"],

@@ -31,6 +31,7 @@
   "homepage": "https://github.com/marktext/muya#readme",
   "dependencies": {
     "@marktext/file-icons": "^1.0.4",
+    "@rollup/plugin-alias": "^4.0.3",
     "axios": "^0.26.1",
     "browserify-zlib": "^0.2.0",
     "dompurify": "^2.3.6",
