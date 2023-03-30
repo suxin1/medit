@@ -606,7 +606,7 @@ kbd {
   }
 
   .ag-image-marked-text::before {
-    background: url(../lib/assets/icons/image_light.png);
+    background: url(./icons/image_light.png);
     background-size: cover;
   }
 
