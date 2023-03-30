@@ -1,0 +1,8 @@
+.github/
+.idea/
+example/
+scripts/
+
+.editorconfig
+rollup.config.mjs
+webpack.config.js

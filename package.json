@@ -1,6 +1,6 @@
 {
-  "name": "muya",
-  "version": "0.1.2",
+  "name": "medit",
+  "version": "0.1.1",
   "description": "A browser based markdown editor that powers MarkText",
   "main": "dist/index.js",
   "scripts": {
@@ -26,9 +26,9 @@
   "author": "ransixi@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marktext/muya/issues"
+    "url": "https://github.com/suxin1/medit/issues"
   },
-  "homepage": "https://github.com/marktext/muya#readme",
+  "homepage": "https://github.com/suxin1/medit#readme",
   "dependencies": {
     "@marktext/file-icons": "^1.0.4",
     "@rollup/plugin-alias": "^4.0.3",

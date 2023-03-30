@@ -15,6 +15,7 @@ import TableTools from '../lib/ui/tableTools'
 // import FrontButton from '../lib/ui/frontButton'
 import FrontMenu from '../lib/ui/frontMenu'
 
+import "../themes/default.css";
 import "../themes/main.theme.css";
 
 
