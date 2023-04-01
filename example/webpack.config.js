@@ -2,6 +2,7 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const commonConfig = require('../scripts/webpack.common')
+const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 
 module.exports = {
   ...commonConfig.default,
@@ -28,7 +29,8 @@ module.exports = {
     new Dotenv(),
     new HtmlWebpackPlugin({
       template: './example/index.html'
-    })
+    }),
+    new SpriteLoaderPlugin(),
   ],
 
   output: {

@@ -1,18 +1,5 @@
-
-
 process.env.BABEL_ENV = 'renderer'
 
-// import {fileURLToPath} from "url";
-// import path from 'path';
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import postcssPresetEnv from 'postcss-preset-env'
-// import CopyPlugin from 'copy-webpack-plugin';
-// import { createRequire } from 'node:module';
-// import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
-
-// const require = createRequire(import.meta.url);
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -34,19 +21,19 @@ exports.default = {
   },
   entry: {
     index: path.join(__dirname, './lib/index.js'),
-    'lib/codePicker/': path.join(__dirname, './lib/ui/codePicker/index.js'),
-    'lib/tablePicker/': path.join(__dirname, './lib/ui/tablePicker/index.js'),
-    'lib/quickInsert/': path.join(__dirname, './lib/ui/quickInsert/index.js'),
-    'lib/emojiPicker/': path.join(__dirname, './lib/ui/emojiPicker/index.js'),
-    'lib/imagePicker/': path.join(__dirname, './lib/ui/imagePicker/index.js'),
-    'lib/imageSelector/': path.join(__dirname, './lib/ui/imageSelector/index.js'),
-    'lib/imageToolbar/': path.join(__dirname, './lib/ui/imageToolbar/index.js'),
-    'lib/transformer/': path.join(__dirname, './lib/ui/transformer/index.js'),
-    'lib/formatPicker/': path.join(__dirname, './lib/ui/formatPicker/index.js'),
-    'lib/linkTools/': path.join(__dirname, './lib/ui/linkTools/index.js'),
-    'lib/footnoteTool/': path.join(__dirname, './lib/ui/footnoteTool/index.js'),
-    'lib/tableBarTools/': path.join(__dirname, './lib/ui/tableTools/index.js'),
-    'lib/frontMenu/': path.join(__dirname, './lib/ui/frontMenu/index.js'),
+    'lib/codePicker/index': path.join(__dirname, './lib/ui/codePicker/index.js'),
+    'lib/tablePicker/index': path.join(__dirname, './lib/ui/tablePicker/index.js'),
+    'lib/quickInsert/index': path.join(__dirname, './lib/ui/quickInsert/index.js'),
+    'lib/emojiPicker/index': path.join(__dirname, './lib/ui/emojiPicker/index.js'),
+    'lib/imagePicker/index': path.join(__dirname, './lib/ui/imagePicker/index.js'),
+    'lib/imageSelector/index': path.join(__dirname, './lib/ui/imageSelector/index.js'),
+    'lib/imageToolbar/index': path.join(__dirname, './lib/ui/imageToolbar/index.js'),
+    'lib/transformer/index': path.join(__dirname, './lib/ui/transformer/index.js'),
+    'lib/formatPicker/index': path.join(__dirname, './lib/ui/formatPicker/index.js'),
+    'lib/linkTools/index': path.join(__dirname, './lib/ui/linkTools/index.js'),
+    'lib/footnoteTool/index': path.join(__dirname, './lib/ui/footnoteTool/index.js'),
+    'lib/tableBarTools/index': path.join(__dirname, './lib/ui/tableTools/index.js'),
+    'lib/frontMenu/index': path.join(__dirname, './lib/ui/frontMenu/index.js'),
   },
   output: {
     filename: '[name].js',

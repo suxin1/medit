@@ -1,22 +1,17 @@
 import Muya from '../lib'
 import EmojiPicker from '../lib/ui/emojiPicker'
 import FormatPicker from '../lib/ui/formatPicker'
-// import ImagePicker from '../lib/ui/imagePicker'
+import ImagePicker from '../lib/ui/imagePicker'
 import ImageSelector from '../lib/ui/imageSelector'
 import ImageToolBar from '../lib/ui/imageToolbar'
 import ImageTransformer from '../lib/ui/transformer'
 import CodePicker from '../lib/ui/codePicker'
-// import TableColumnTools from '../lib/ui/tableColumnTools'
 import QuickInsert from '../lib/ui/quickInsert'
-// import TableDragBar from '../lib/ui/tableDragBar'
 import TableTools from '../lib/ui/tableTools'
-// import PreviewTools from '../lib/ui/previewTools'
-
-// import FrontButton from '../lib/ui/frontButton'
 import FrontMenu from '../lib/ui/frontMenu'
 
 import "../themes/default.css";
-import "../themes/main.theme.css";
+import "../themes/graphite.theme.css";
 
 
 // const DEFAULT_MARKDOWN = `
@@ -60,7 +55,7 @@ import "../themes/main.theme.css";
 
 Muya.use(EmojiPicker)
 Muya.use(FormatPicker)
-// Muya.use(ImagePicker)
+Muya.use(ImagePicker)
 Muya.use(ImageSelector, {
   unsplashAccessKey: process.env.UNSPLASH_ACCESS_KEY
 })

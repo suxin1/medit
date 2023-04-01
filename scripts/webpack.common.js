@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const proMode = process.env.NODE_ENV === 'production'
 
@@ -94,6 +95,6 @@ exports.default = {
     new NodePolyfillPlugin(),
     new ESLintPlugin({
       formatter: require('eslint-friendly-formatter')
-    })
+    }),
   ]
 }
