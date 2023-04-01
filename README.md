@@ -1,3 +1,3 @@
-### Meidt
+<h1 align="center">Medit</h1>
 
-A browser based Markdown editor.
+<p align="center">This libray is extracted from <a href="https://github.com/marktext/marktext">Marktext</a>. Thanks to their hard work.</p>
