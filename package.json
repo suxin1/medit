@@ -5,8 +5,7 @@
   "main": "dist/index.min.js",
   "scripts": {
     "dev": "webpack serve --config ./example/webpack.config.js --open",
-    "build": "rimraf ./dist &&  rollup -c",
-    "build:wp": "rimraf ./dist && webpack --env production --config ./webpack.config.js",
+    "build": "rimraf ./dist && webpack --env production --config ./webpack.config.js",
     "test": "jest --env=jsdom",
     "lint": "eslint lib",
     "lint:fix": "eslint --fix lib",
