@@ -15,7 +15,9 @@
   font-weight: 600;
   position: sticky;
   top: 0;
-  background: var(--itemBgColor);
+  background: var(--sideBarTitleColor);
+  opacity: 1;
+  border: 1px solid var(--sideBarTextColor);
   z-index: 1001;
 }
 

@@ -9,6 +9,8 @@ import CodePicker from '../lib/ui/codePicker'
 import QuickInsert from '../lib/ui/quickInsert'
 import TableTools from '../lib/ui/tableTools'
 import FrontMenu from '../lib/ui/frontMenu'
+import TablePicker from '../lib/ui/tablePicker'
+import Emoji from '../lib/ui/emojis'
 
 import "../themes/default.css";
 import "../themes/graphite.theme.css";
@@ -54,6 +56,7 @@ import "../themes/graphite.theme.css";
 // `
 
 Muya.use(EmojiPicker)
+Muya.use(Emoji)
 Muya.use(FormatPicker)
 Muya.use(ImagePicker)
 Muya.use(ImageSelector, {
@@ -69,6 +72,7 @@ Muya.use(FrontMenu)
 Muya.use(QuickInsert)
 // Muya.use(TableDragBar)
 Muya.use(TableTools)
+Muya.use(TablePicker)
 // Muya.use(PreviewTools)
 
 const container = document.querySelector('#editor')
