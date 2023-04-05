@@ -13,47 +13,10 @@ import TablePicker from '../lib/ui/tablePicker'
 import Emoji from '../lib/ui/emojis'
 
 import "../themes/default.css";
-import "../themes/graphite.theme.css";
+import "../themes/main.theme.css";
 
+import sample from "./sample";
 
-// const DEFAULT_MARKDOWN = `
-// foo bar^hello^~world~`
-
-// <div>
-// foo bar
-// </div>
-
-// | foo | bar     |
-// | ---:| ------- |
-// | zar | foo bar |
-
-// 0. foo
-//    bar
-
-// - foo bar1
-
-//   foo bar2
-
-// - [ ] a
-// - [x] b
-// - [ ] c
-// - [ ] d
-
-// **blod** *emphasis* :man: <u>underline</u> <mark>highlight</mark> \`inline code\`~~Delete~~ [Baidu](http://www.baidu.com) http://google.com
-
-// ---
-
-// # foo bar
-
-// foo
-// bar
-// ===
-
-// > foo
-// > bar
-
-// 图片![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592848169049&di=1bf848686f738f8697ec90a2d484a29c&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F54%2F05%2F625746fd5b60878.jpg) bar &gt; *zar* <ruby>北京<rt>Beijing</rt></ruby> foo bar $a \ne b$ 和自己
-// `
 
 Muya.use(EmojiPicker)
 Muya.use(Emoji)
@@ -76,57 +39,59 @@ Muya.use(TablePicker)
 // Muya.use(PreviewTools)
 
 const container = document.querySelector('#editor')
-// const undoBtn = document.querySelector('#undo')
-// const redoBtn = document.querySelector('#redo')
-// const searchInput = document.querySelector('#search')
-// const previousBtn = document.querySelector('#previous')
-// const nextBtn = document.querySelector('#next')
-// const replaceInput = document.querySelector('#replace')
-// const singleBtn = document.querySelector('#single')
-// const allBtn = document.querySelector('#all')
-const muya = new Muya(container )
+
+const undoBtn = document.querySelector('#undo')
+const redoBtn = document.querySelector('#redo')
+const searchInput = document.querySelector('#search')
+const previousBtn = document.querySelector('#previous')
+const nextBtn = document.querySelector('#next')
+const replaceInput = document.querySelector('#replace')
+const singleBtn = document.querySelector('#single')
+const allBtn = document.querySelector('#all')
+
+const muya = new Muya(container, {markdown: sample, disableHtml: true});
 
 window.muya = muya
 
 muya.init()
 
-// undoBtn.addEventListener('click', () => {
-//   muya.undo()
-// })
-//
-// redoBtn.addEventListener('click', () => {
-//   muya.redo()
-// })
-//
-// searchInput.addEventListener('input', (event) => {
-//   const value = event.target.value
-//
-//   muya.search(value, { isRegexp: true })
-// })
-//
-// previousBtn.addEventListener('click', () => {
-//   muya.find('previous')
-// })
-//
-// nextBtn.addEventListener('click', () => {
-//   muya.find('next')
-// })
-//
-// singleBtn.addEventListener('click', () => {
-//   muya.replace(replaceInput.value, { isSingle: true, isRegexp: true })
-// })
-//
-// allBtn.addEventListener('click', () => {
-//   muya.replace(replaceInput.value, { isSingle: false })
-// })
+undoBtn.addEventListener('click', () => {
+  muya.undo()
+})
 
-// muya.on('json-change', (changes) => {
-  // console.log(JSON.stringify(muya.getState(), null, 2))
-  // console.log(muya.getMarkdown())
-  // console.log(JSON.stringify(changes, null, 2))
-// })
+redoBtn.addEventListener('click', () => {
+  muya.redo()
+})
 
-// muya.on('selection-change', changes => {
-//   const { anchor, focus, path } = changes
-//   console.log(JSON.stringify([anchor.offset, focus.offset, path]))
-// })
+searchInput.addEventListener('input', (event) => {
+  const value = event.target.value
+
+  muya.search(value, { isRegexp: true })
+})
+
+previousBtn.addEventListener('click', () => {
+  muya.find('previous')
+})
+
+nextBtn.addEventListener('click', () => {
+  muya.find('next')
+})
+
+singleBtn.addEventListener('click', () => {
+  muya.replace(replaceInput.value, { isSingle: true, isRegexp: true })
+})
+
+allBtn.addEventListener('click', () => {
+  muya.replace(replaceInput.value, { isSingle: false })
+})
+
+muya.on('json-change', (changes) => {
+  console.log(JSON.stringify(muya.getState(), null, 2))
+  console.log(muya.getMarkdown())
+  console.log(JSON.stringify(changes, null, 2))
+})
+
+muya.on('selection-change', changes => {
+  const { anchor, focus, path } = changes
+  console.log(JSON.stringify([anchor.offset, focus.offset, path]))
+})

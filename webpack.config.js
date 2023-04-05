@@ -53,6 +53,9 @@ exports.default = {
       },
       {
         test: /\.css$/,
+        exclude: [
+          path.resolve(__dirname, 'lib/ui'),
+        ],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -69,6 +72,16 @@ exports.default = {
               }
             }
           }
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: [
+          path.resolve(__dirname, 'lib/ui'),
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
         ]
       },
       {
@@ -110,7 +123,7 @@ exports.default = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].min.css'
+      filename: '[name].min.css',
     }),
     new CopyPlugin({
       patterns: [
