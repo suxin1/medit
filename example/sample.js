@@ -6,6 +6,11 @@ foo bar^hello^~world~
 foo bar
 </div>
 
+\`\`\`bash
+# code block
+\`\`\`
+
+
 | foo | bar     |
 | ---:| ------- |
 | zar | foo bar |
