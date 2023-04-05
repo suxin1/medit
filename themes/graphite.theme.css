@@ -167,7 +167,7 @@ li.ag-task-list-item > input::after {
   border-right: none;
   position: absolute;
   display: inline-block;
-  top: 1px;
+  top: 3px;
   left: 5px;
   transition: all .2s ease;
 }
