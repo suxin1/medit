@@ -49,7 +49,7 @@ const replaceInput = document.querySelector('#replace')
 const singleBtn = document.querySelector('#single')
 const allBtn = document.querySelector('#all')
 
-const muya = new Muya(container, {markdown: sample, disableHtml: true});
+const muya = new Muya(container, {markdown: sample, disableHtml: false});
 
 window.muya = muya
 
