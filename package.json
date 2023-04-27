@@ -1,6 +1,6 @@
 {
   "name": "medit",
-  "version": "0.1.3",
+  "version": "0.1.7",
   "description": "A browser based markdown editor that powers MarkText",
   "main": "dist/index.min.js",
   "scripts": {
